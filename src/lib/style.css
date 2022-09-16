@@ -1,0 +1,17 @@
+.day {
+  padding: 10px;
+  min-width: 50px;
+  max-width: 50px;
+}
+.week-head {
+  padding: 5px 10px 5px 10px;
+  min-width: 50px;
+  max-width: 50px;
+}
+.month {
+  padding: 5px;
+  border: 2px solid black;
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+}
