@@ -17,7 +17,7 @@ function App() {
   
   return (
     <div className="">
-      <Calendar {...state} yearViewTiles={4} calendarEvents={calendarEvents}/>
+      <Calendar {...state} calendarEvents={calendarEvents}/>
     </div>
   );
 }

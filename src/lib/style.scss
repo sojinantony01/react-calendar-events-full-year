@@ -1,18 +1,23 @@
+*, ::after, ::before {
+  box-sizing: border-box;
+}
 .react-calendar-events {
   text-align: center;
   .day {
     display: inline-block;
     vertical-align: top;
-    width: 14%;
+    width: 14.2857143%;
     margin-bottom: 5px;
     min-width: 41px;
     min-height: 18px;
+    padding: 0px 1px;
   }
   .week-head {
     display: inline-block;
     vertical-align: top;
-    width: 14%;
+    width: 14.2857143%;
     margin-bottom: 5px;
+    padding: 0px 1px;
   }
   .month {
     padding: 5px;
@@ -20,16 +25,20 @@
     display: inline-block;
     vertical-align: top;
     margin: 1px;
+    flex: 1 1 306px;
   }
   .year-view {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-wrap: wrap;
   }
   .month-view {
     padding: 5px;
     border: 1px solid rgb(58, 58, 58);
     width: 100%;
     height: 100%;
+    max-width: 537px;
   }
   .year-head {
     margin: 5px;
@@ -47,7 +56,19 @@
   }
   .events-found {
     font-weight: bold;
-    background-color: #ee94de;  
+    border: 1px solid #3b91ad; 
+    border-radius: 5000px; 
+    position: relative;
+    &::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 2px;
+      right: 5px;
+    }
   }
 
   /* Popup container */
@@ -60,18 +81,34 @@
   /* The actual popup (appears on top) */
   .popup .popuptext {
     visibility: hidden;
-    width: 200px;
-    background-color: rgb(253, 253, 253);
-    color: rgb(0, 0, 0);
+    background-color: #3b91ad;
+    color: #ffffff;
     text-align: center;
     border-radius: 6px;
-    padding: 8px 0;
+    padding: 8px;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-    border: 1px solid #ddd;
+    bottom: calc(100% + 8px);
+    left: calc(0px - 81px);
+    border: 1px solid #3b91ad;
+    .popup_text_item {
+      padding: 5px 0px;
+      width: 100%;
+      max-width: 500px;
+      width: max-content;
+      .event_title {
+        position: relative;
+        &::before {
+          content: '';
+          height: 1px;
+          background-color: #ffffff;
+          width: 100%;
+          position: absolute;
+          bottom: -2px;
+          left: 0px;
+        }
+      }
+    }
   }
 
   /* Popup arrow */
@@ -79,11 +116,11 @@
     content: "";
     position: absolute;
     top: 100%;
-    left: 50%;
+    left: 100px;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    border-color: #3b91ad transparent transparent transparent;
   }
 
   /* Toggle this class when clicking on the popup container (hide and show the popup) */
@@ -102,5 +139,30 @@
   @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity:1 ;}
+  }
+  .react_calendar_flex_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .react_calendar_margin {
+    margin-right: 0.5rem;
+  }
+  .react_calendar_top_toggle_bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    padding: 10px 0px;
+    .react_calendar_top_toggle_container {
+      margin-right: 10px;
+    }
+    .react_calendar_round_toggle {
+      background-color: #3b91ad;
+      color: #ffffff;
+      padding: 5px 20px;
+      border-radius: 5000px;
+      cursor: pointer;
+    }
   }
 }

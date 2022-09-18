@@ -8,7 +8,6 @@ import './style.scss';
 interface PropData {
   defaultMonth?: number
   defaultYear?: number
-  yearViewTiles?: number
   calendarEvents?: MyEvent[]
 }
 interface State {
@@ -28,7 +27,6 @@ function Calendar(props: PropData) {
     month: getValidMonth(props.defaultMonth),
     year: props.defaultYear ? props.defaultYear : getYear(new Date())
   })
-  const tiles = props.yearViewTiles ? props.yearViewTiles : 4 
   const [monthView, setMonthView] = useState(true);
   const changeYear = (val: number) => {
     setState({...state, year: state.year + val})
@@ -47,35 +45,44 @@ function Calendar(props: PropData) {
   }
   return (
       <div className="react-calendar-events">
-        <div onClick={()=>setMonthView(!monthView)}>
-          {monthView ? "Year View" : "Month View"}
-        </div>
-        {monthView ? 
-          <div className="month-view">
-              <div className='month-head'>
-                <span onClick={()=>changeYear(-1)}>-</span>
-                {state.year}
-                <span onClick={()=>changeYear(1)}>+</span>
-              </div>
-              <div className='month-head'>
-                <span onClick={()=>changeMonth(-1)}>-</span>
-                {translation.months[state.month]}
-                <span onClick={()=>changeMonth(1)}>+</span>
-              </div>
-            <Month {...state} calendarEvents={props.calendarEvents}/>
-        </div>
-        :
-        <div>
-          <style>
-            {`.react-calendar-events .month {
-              width: ${92/tiles}%
-            }`}
-          </style>
-          <div className='year-head'>
-            <span onClick={()=>changeYear(-1)}>-</span>
-            {state.year}
-            <span onClick={()=>changeYear(1)}>+</span>
+        <div className='react_calendar_top_toggle_bar'>
+          <div className='react_calendar_top_toggle_container'>
+              {monthView ?  
+                  <div className='react_calendar_flex_box'>
+                    <div className='react_calendar_flex_box react_calendar_margin'>
+                      <div className='react_calendar_round_toggle react_calendar_margin' onClick={()=>changeYear(-1)}>-</div>
+                      <div className='react_calendar_round_toggle react_calendar_margin'>{state.year}</div>
+                      <div className='react_calendar_round_toggle react_calendar_margin' onClick={()=>changeYear(1)}>+</div>
+                    </div>
+                    <div className='react_calendar_flex_box'>
+                      <div className='react_calendar_round_toggle react_calendar_margin' onClick={()=>changeMonth(-1)}>-</div>
+                      <div className='react_calendar_round_toggle react_calendar_margin'>{translation.months[state.month]}</div>
+                      <div className='react_calendar_round_toggle' onClick={()=>changeMonth(1)}>+</div>
+                    </div>
+                  </div>
+                : 
+                  <div className='react_calendar_flex_box'>
+                    <div className='react_calendar_round_toggle react_calendar_margin' onClick={()=>changeYear(-1)}>-</div>
+                    <div className='react_calendar_round_toggle react_calendar_margin'>{state.year}</div>
+                    <div className='react_calendar_round_toggle' onClick={()=>changeYear(1)}>+</div>
+                  </div>
+              }
           </div>
+          <div className='react_calendar_top_toggle_view_switch_container'>
+              <div onClick={()=>setMonthView(!monthView)} className="react_calendar_round_toggle">
+                {monthView ? "Year View" : "Month View"}
+              </div>
+          </div>
+        </div>
+        
+        {monthView ? 
+          <div className='react_calendar_flex_box'>
+            <div className="month-view">   
+              <Month {...state} calendarEvents={props.calendarEvents}/>
+            </div>
+          </div>
+        :
+        <div>         
           <div className='year-view'>
             {months.map(month => {
             return <div className="month" key={month}> 

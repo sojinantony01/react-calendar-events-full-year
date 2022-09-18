@@ -33,13 +33,17 @@ function Day(props: PropData) {
   }
 
   return (
-    <div onClick={showEvents} tabIndex={0} onBlur={hideEvents} className={`day popup ${isWeekEnd ? "week-end" : ''} ${today ? "today" : ""} ${eventsOfDay.length ? "events-found" : ""}`}>
-      {day}
-      {show && <div className="popuptext show">
-        {eventsOfDay.map((d, i) => {
-          return<div key={`event-${i}`}>{d.title} - {d.from.getHours()+":"+d.from.getMinutes()} - {d.to.getHours()+":"+d.to.getMinutes()}</div>
-        })}
-      </div>}
+    
+    <div onClick={showEvents} onBlur={hideEvents} tabIndex={0}  className={`day popup `}>
+      <div className={`day_container ${isWeekEnd ? "week-end" : ''} ${today ? "today" : ""} ${eventsOfDay.length ? "events-found" : ""}`}>
+        {day}
+        {show && <div className="popuptext show">
+          {eventsOfDay.map((d, i) => {
+            return<div className="popup_text_item" key={`event-${i}`}><span className="event_title">{d.title}</span> - {d.from.getHours()+":"+d.from.getMinutes()} - {d.to.getHours()+":"+d.to.getMinutes()}</div>
+          })}
+        </div> 
+      }
+      </div>
     </div>
   );
 }
