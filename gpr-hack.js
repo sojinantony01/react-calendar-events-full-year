@@ -7,6 +7,6 @@ const file = readFileSync("./package.json", {
 
 const json = JSON.parse(file);
 
-json.name = "@sojinantony01/react-calendar-event-full-year";
+json.name = "@sojinantony01/react-calendar-events-full-year";
 
 writeFileSync("./package.json", JSON.stringify(json, undefined, 2));

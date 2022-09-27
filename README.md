@@ -1,11 +1,11 @@
-# react-calendar-event-full-year
+# react-calendar-events-full-year
 
 A simple events calendar with year and month view
 
 ## Getting Started
 
 ```
-npm install react-calendar-event-full-year --save
+npm install react-calendar-events-full-year --save
 
 ```
 
@@ -23,7 +23,7 @@ npm install react-calendar-event-full-year --save
 
 
 ```
-import Calendar from 'react-calendar-event-full-year'
+import Calendar from 'react-calendar-events-full-year'
 
 const tempEvents = [
   {
