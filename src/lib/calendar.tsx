@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getYear, getMonth } from 'date-fns';
 import Month from './month';
 import translation from './utils/translation.json'
@@ -9,6 +9,7 @@ interface PropData {
   defaultMonth?: number
   defaultYear?: number
   calendarEvents?: MyEvent[]
+  monthView?: boolean
 }
 interface State {
   month: number
@@ -27,7 +28,10 @@ function Calendar(props: PropData) {
     month: getValidMonth(props.defaultMonth),
     year: props.defaultYear ? props.defaultYear : getYear(new Date())
   })
-  const [monthView, setMonthView] = useState(true);
+  const [monthView, setMonthView] = useState(props.monthView ? true : false);
+  useEffect(() => {
+    setMonthView(props.monthView ? true : false)
+  }, [props.monthView])
   const changeYear = (val: number) => {
     setState({...state, year: state.year + val})
   }
@@ -85,11 +89,12 @@ function Calendar(props: PropData) {
         <div>         
           <div className='year-view'>
             {months.map(month => {
-            return <div className="month" key={month}> 
-                <div className='month-head'>{translation.months[month]}</div>
-                <Month year={state.year} month={month} calendarEvents={props.calendarEvents}/>
-              </div>
-            })}
+              return <div className="month" key={month}> 
+                  <div className='month-head'>{translation.months[month]}</div>
+                  <Month year={state.year} month={month} calendarEvents={props.calendarEvents}/>
+                </div>
+              })
+            }
           </div>
         </div>}
       </div>
