@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { getYear, getMonth } from 'date-fns';
 import Month from './month';
 import translation from './utils/translation.json'

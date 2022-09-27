@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Calendar from './lib';
 import tempEvents from "./temp-events.json"
 import './App.css';
+import React from 'react';
 interface MyEvent {
   id: string
   title: string

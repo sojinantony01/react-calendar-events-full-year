@@ -28,5 +28,7 @@ export default {
     typescript({ useTsconfigDeclarationDir: true }),
     postcss(),
     json()
-  ]
+  ],
+  external: ["react", "react-dom"],
+  exclude:["node_modules"]
 };

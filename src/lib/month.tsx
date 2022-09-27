@@ -1,3 +1,4 @@
+import React from 'react'
 import { getDay, getDaysInMonth } from 'date-fns';
 import Day from './day';
 import { MyEvent } from './model';

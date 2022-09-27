@@ -1,6 +1,6 @@
 {
   "name": "react-calendar-event-full-year",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": false,
   "description": "Simple events calendar with both month and full year view",
   "keywords": [
@@ -18,10 +18,11 @@
   },
   "author": "Sojin antony",
   "license": "ISC",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "types": "build/index.d.ts",
   "files": [
-    "dist"
+    "build"
   ],
   "dependencies": {
     "date-fns": "^2.29.3"
@@ -42,8 +43,7 @@
     "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
     "gh-pages": "^4.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "postcss": "^8.4.16",
     "react-scripts": "5.0.1",
     "rollup": "^2.79.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -55,7 +55,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rollup -c",
+    "build": "rm -rf build && rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
