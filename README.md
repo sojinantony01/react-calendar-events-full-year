@@ -13,6 +13,7 @@ npm install react-calendar-events-full-year --save
 ## [Live demo](https://sojinantony01.github.io/react-calendar-events-full-year/)
 
 
+## Sample screenshots
 
 ![alt text](https://raw.githubusercontent.com/sojinantony01/react-calendar-events-full-year/main/public/images/month.png)
 
