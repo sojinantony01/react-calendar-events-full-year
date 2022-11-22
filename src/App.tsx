@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Calendar from './lib';
 import tempEvents from "./temp-events.json"
 import './App.css';
