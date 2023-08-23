@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-calendar-events-full-year/static/css/main.cf68efc9.css",
-    "main.js": "/react-calendar-events-full-year/static/js/main.ab6607d5.js",
+    "main.js": "/react-calendar-events-full-year/static/js/main.45650231.js",
     "static/js/787.75bea54a.chunk.js": "/react-calendar-events-full-year/static/js/787.75bea54a.chunk.js",
     "index.html": "/react-calendar-events-full-year/index.html",
     "main.cf68efc9.css.map": "/react-calendar-events-full-year/static/css/main.cf68efc9.css.map",
-    "main.ab6607d5.js.map": "/react-calendar-events-full-year/static/js/main.ab6607d5.js.map",
+    "main.45650231.js.map": "/react-calendar-events-full-year/static/js/main.45650231.js.map",
     "787.75bea54a.chunk.js.map": "/react-calendar-events-full-year/static/js/787.75bea54a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cf68efc9.css",
-    "static/js/main.ab6607d5.js"
+    "static/js/main.45650231.js"
   ]
 }
